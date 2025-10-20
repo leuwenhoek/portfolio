@@ -56,12 +56,6 @@ nav > a:hover {
   transform: scale(1.05);
 }
 
-/* #home-sec{
-    height: 20px;
-    width: 20px;
-    display: flex;
-} */
-
 .home-div {
   display: flex;
   align-items: center;
@@ -72,8 +66,7 @@ nav > a:hover {
   text-align: center; 
 }
 
-
-.text-div {
+.text-div1 {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -88,7 +81,6 @@ nav > a:hover {
   font-weight: 800;
 }
 
-
 .bio {
     color: aliceblue;
     font-size: 1.5rem;
@@ -97,15 +89,65 @@ nav > a:hover {
 }
 .photo {
   width: 25vw;
-  max-width: 250px; /* badi screen pe limit */
-  min-width: 120px; /* chhoti pe limit */
+  max-width: 250px; 
+  min-width: 120px; 
   height: auto;
   border-radius: 50%;
   border: 2px solid whitesmoke;
 }
 
 #home-sec{
-    background-color: var(--penn-blue);
+    background-color: rgb(1, 8, 32);
+}
+
+#tech-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  padding: 20px;
+  background-color: rgb(1, 8, 32);
+}
+
+.text-div2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  max-width: 600px;
+}
+
+.tech-title {
+  color: whitesmoke;
+  font-family: "Poppins", sans-serif;
+  font-weight: bolder;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  text-align: center;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.stack {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  padding: 5px;
+  border: 2px solid white;
+  transition: transform 0.3s ease;
+}
+
+.stack:hover {
+  transform: scale(1.2);
 }
 
 @media (max-width: 768px) {
@@ -126,5 +168,18 @@ nav > a:hover {
 
   nav > a {
     font-size: 1.3rem;
+  }
+
+  .stack {
+    width: 50px;
+    height: 50px;
+  }
+
+  .skills {
+    gap: 15px;
+  }
+
+  .tech-title {
+    font-size: 2.2rem;
   }
 }
