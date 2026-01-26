@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Portfolio | CEO of Hoollow{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
+        
+        :root { --plum: #DDA0DD; --dark: #050505; }
+        
+        /* FIX: Ensure vertical scrolling works and horizontal is killed */
+        html, body {
+            margin: 0; padding: 0;
+            width: 100%; min-height: 100%;
+            overflow-x: hidden; overflow-y: auto;
+            background-color: var(--dark);
+            color: #f1f1f1;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .text-plum { color: var(--plum); }
+
+        /* Glassmorphism Classes */
+        .glass-header {
+            background: rgba(5, 5, 5, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-pill {
+            background: rgba(221, 160, 221, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(221, 160, 221, 0.2);
+        }
+
+        .nav-link { 
+            position: relative; font-size: 0.75rem; letter-spacing: 0.2em; 
+            text-transform: uppercase; font-weight: 700; 
+        }
+        .nav-link:hover { color: var(--plum); }
+    </style>
+</head>
+<body>
+
+    <nav class="fixed w-full z-[100] glass-header">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <a href="/" class="text-2xl font-bold tracking-tighter">leuwenhoek<span class="text-plum italic">.</span></a>
+            <div class="hidden md:flex space-x-10">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/projects" class="nav-link">Projects</a>
+                <a href="/stats" class="nav-link">Stats</a>
+                <a href="/achievements" class="nav-link">Milestones</a>
+                <a href="https://linkify-nine-kappa.vercel.app/" target="_blank" class="nav-link">Connect</a>
+            </div>
+            <a href="https://buymeacoffee.com/leuwenhoek" target="_blank" class="glass-pill text-plum px-5 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-plum hover:text-black transition-all">
+                Support Work
+            </a>
+        </div>
+    </nav>
+
+    <main>{% block content %}{% endblock %}</main>
+
+    <footer class="py-20 px-10 border-t border-white/5 text-center">
+        <p class="text-white/20 text-[10px] uppercase tracking-[0.4em]">© 2026 Founder of Hoollow</p>
+    </footer>
+
+    <script>
+        // Simple Mobile Menu Toggle logic can be added here if needed
+        
+        function copyCloneLink(link, button) {
+            navigator.clipboard.writeText(link).then(() => {
+                const originalText = button.textContent;
+                button.textContent = 'Copied cloning link';
+                button.style.backgroundColor = 'var(--plum)';
+                button.style.color = 'black';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.backgroundColor = '';
+                    button.style.color = '';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

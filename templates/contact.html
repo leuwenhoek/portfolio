@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="pt-32 pb-20 px-10">
+    <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-5xl font-bold mb-6 text-white">Get in touch.</h2>
+        <p class="text-white/50 mb-12">Currently seeking new challenges and collaborations.</p>
+        <form class="space-y-6 text-left">
+            <input type="text" placeholder="Your Name" class="w-full bg-zinc-900 border border-white/10 p-4 rounded-xl focus:border-plum outline-none transition">
+            <input type="email" placeholder="Email Address" class="w-full bg-zinc-900 border border-white/10 p-4 rounded-xl focus:border-plum outline-none transition">
+            <textarea placeholder="Your Message" rows="5" class="w-full bg-zinc-900 border border-white/10 p-4 rounded-xl focus:border-plum outline-none transition"></textarea>
+            <button class="w-full bg-plum text-slate-900 font-bold py-4 rounded-xl hover:bg-white transition">Send Message</button>
+        </form>
+        <div class="mt-12">
+            <p class="text-white/50 mb-6">Or support me on:</p>
+            <a href="https://buymeacoffee.com/leuwenhoek" target="_blank" class="inline-block bg-plum text-slate-900 font-bold px-8 py-4 rounded-xl hover:bg-white transition">
+                Buy Me a Coffee
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

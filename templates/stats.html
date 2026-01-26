@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="relative w-full overflow-x-hidden min-h-screen bg-[#050505]">
+    
+    <div class="absolute top-[-5%] right-[-5%] w-[500px] h-[500px] bg-plum/5 blur-[150px] rounded-full pointer-events-none"></div>
+    <div class="absolute bottom-0 left-[-10%] w-[400px] h-[400px] bg-indigo-900/5 blur-[130px] rounded-full pointer-events-none"></div>
+
+    <section class="max-w-7xl mx-auto px-6 pt-32 pb-20 relative z-10">
+        
+        <div class="mb-16">
+            <span class="glass-pill text-plum px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.4em]">Strategic Metrics</span>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tighter mt-6">
+                Technical <span class="font-serif italic font-light text-plum">Output.</span>
+            </h1>
+        </div>
+
+        <div class="grid grid-cols-1 gap-12">
+            
+            <div class="glass-card rounded-[2.5rem] p-8 md:p-12 border-white/5 bg-gradient-to-b from-white/[0.01] to-transparent">
+                <div class="flex justify-between items-start mb-12">
+                    <div>
+                        <h3 class="text-3xl font-bold text-white italic tracking-tight">GitHub Ecosystem</h3>
+                        <p class="text-[10px] text-plum/50 uppercase tracking-[0.3em] font-bold mt-2">leuwenhoek // development_cycle</p>
+                    </div>
+                    <i class="fab fa-github text-4xl text-plum/30"></i>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-8 mb-16">
+                    <img src="https://github-readme-stats.vercel.app/api?username=leuwenhoek&show_icons=true&theme=transparent&title_color=DDA0DD&text_color=ffffff&icon_color=DDA0DD&hide_border=true" class="w-full filter drop-shadow-2xl">
+                    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=leuwenhoek&layout=compact&theme=transparent&title_color=DDA0DD&text_color=ffffff&hide_border=true" class="w-full filter drop-shadow-2xl">
+                </div>
+
+                <div class="glass-card rounded-3xl p-8 bg-[#0a0a0a] border-white/5">
+                    <div class="flex justify-center overflow-x-auto pb-4 custom-scrollbar">
+                        <img src="https://ghchart.rshah.org/DDA0DD/leuwenhoek" alt="leuwenhoek Github Chart" class="min-w-[800px] lg:min-w-0 w-full brightness-110 mix-blend-screen">
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-[2.5rem] p-8 md:p-12 border-white/5">
+                <div class="mb-12">
+                    <h3 class="text-3xl font-bold text-white italic tracking-tight">Strategic Tech Stack</h3>
+                    <p class="text-[10px] text-plum/50 uppercase tracking-[0.3em] font-bold mt-2">Core Competencies // High-Fidelity Engineering</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="glass-card p-6 rounded-3xl border-white/5 hover:border-plum/20 transition-all group">
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-plum mb-6">Frontend Engine</p>
+                        <div class="flex flex-wrap gap-6 text-2xl text-white/40">
+                            <i class="fab fa-react group-hover:text-white transition-colors" title="React"></i>
+                            <i class="fab fa-js group-hover:text-white transition-colors" title="JavaScript"></i>
+                            <i class="fab fa-html5 group-hover:text-white transition-colors" title="HTML5"></i>
+                            <i class="fab fa-css3-alt group-hover:text-white transition-colors" title="Tailwind"></i>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-3xl border-white/5 hover:border-plum/20 transition-all group">
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-plum mb-6">System & Logic</p>
+                        <div class="flex flex-wrap gap-6 text-2xl text-white/40">
+                            <i class="fab fa-python group-hover:text-white transition-colors" title="Python"></i>
+                            <i class="devicon-cplusplus-plain group-hover:text-white transition-colors" title="C++"></i>
+                            <i class="fab fa-node-js group-hover:text-white transition-colors" title="Node.js"></i>
+                            <i class="fas fa-server group-hover:text-white transition-colors" title="Flask"></i>
+                            <i class="fas fa-database group-hover:text-white transition-colors" title="SQL"></i>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-3xl border-white/5 hover:border-plum/20 transition-all group">
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-plum mb-6">Infrastructure</p>
+                        <div class="flex flex-wrap gap-6 text-2xl text-white/40">
+                            <i class="fab fa-aws group-hover:text-white transition-colors" title="AWS"></i>
+                            <i class="fab fa-git-alt group-hover:text-white transition-colors" title="Git"></i>
+                            <i class="fab fa-linux group-hover:text-white transition-colors" title="Linux"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-[2.5rem] p-8 md:p-12 border-white/5">
+                <div class="flex justify-between items-start mb-12">
+                    <h3 class="text-3xl font-bold text-white italic tracking-tight">LeetCode Analytics</h3>
+                    <i class="fas fa-terminal text-3xl text-plum/30"></i>
+                </div>
+                <div class="flex justify-center">
+                    <img src="https://leetcard.jacoblin.cool/leuwenhoek?theme=dark&font=Outfit&ext=activity" class="w-full max-w-2xl rounded-2xl shadow-2xl">
+                </div>
+            </div>
+
+        </div>
+    </section>
+</div>
+
+<style>
+    .custom-scrollbar::-webkit-scrollbar { height: 4px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(221, 160, 221, 0.2); border-radius: 10px; }
+</style>
+{% endblock %}
