@@ -1,3 +1,5 @@
+import os
+import json
 from flask import Flask, render_template
 
 app = Flask(__name__)
@@ -20,7 +22,15 @@ def achievements():
 
 @app.route('/gallery')
 def gallery():
-    return render_template('contact.html')
+    json_path = os.path.join(app.root_path, 'JSON', 'gallery.json')
+    with open(json_path, 'r') as f:
+        gallery_data = json.load(f)
+    
+    # Sort data: latest date first (Descending order)
+    # Assuming Date format is YYYY-MM-DD
+    sorted_gallery = sorted(gallery_data, key=lambda x: x['Date'], reverse=True)
+    
+    return render_template('gallery.html', gallery=sorted_gallery)
 
 @app.route('/contact')
 def contact():
@@ -28,7 +38,7 @@ def contact():
 
 @app.route('/coffee')
 def coffee():
-    return render_template('contact.html')
+    return "Comming soon"
 
 if __name__ == '__main__':
     app.run(debug=True)

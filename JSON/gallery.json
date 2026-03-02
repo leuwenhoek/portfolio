@@ -1,0 +1,39 @@
+[
+
+  {
+    "Date": "2026-02-28",
+    "Location" : "IIT-Delhi,New Delhi, India",
+    "Description": "Tryst 2026: Visited IIT-D during Tryst 2026.",
+    "Photos": [
+      "https://iili.io/qqmw8VR.md.webp",
+      "https://iili.io/qqmwSPp.md.webp"
+    ]
+  },
+    {
+    "Date": "2026-02-20",
+    "Location" : "Bharat Mandapam, New Delhi, India",
+    "Description": "Ai impact Summit: Explored the AI invation at a global level event.",
+    "Photos": [
+      "https://iili.io/qqDqdlf.md.webp",
+      "https://iili.io/qqm0DYv.md.webp"
+    ]
+  },
+  {
+    "Date": "2026-02-02",
+    "Location" : "IITM, New Delhi, India",
+    "Description": "Techno Sapiens 2K26: Visited for a Hackathon at IITM-Delhi.",
+    "Photos": [
+    "https://iili.io/qqphca1.md.jpg",
+    "https://iili.io/qqpha3P.md.jpg"
+    ]
+  },
+  {
+    "Date": "2025-12-12",
+    "Location" : "PM SHRI Kendriya Vidyalaya No. 1,Jaipur, India",
+    "Description": "Ai VidyaSetu 1.0 : Reached upto Zonals level in a nation level hackathon.",
+    "Photos": [
+      "https://iili.io/qqmyKfR.md.jpg",
+      "https://iili.io/qqmy3iv.md.jpg"
+    ]
+  }
+]

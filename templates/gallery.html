@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{% block title %}Gallery | Hoollow{% endblock %}
+
+{% block content %}
+<div class="relative w-full overflow-x-hidden min-h-screen bg-[#050505]">
+    
+    <div class="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-plum/10 blur-[120px] rounded-full pointer-events-none"></div>
+
+    <section class="max-w-7xl mx-auto px-6 pt-32 pb-20 relative z-10">
+        <div class="mb-16">
+            <span class="glass-pill text-plum px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.4em]">Visual Journey</span>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tighter mt-6">
+                The <span class="font-serif italic font-light text-plum">Gallery.</span>
+            </h1>
+        </div>
+
+        <div class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+            {% for item in gallery %}
+            <div class="glass-card rounded-[2rem] overflow-hidden group relative break-inside-avoid">
+                <div class="relative overflow-hidden cursor-pointer" onclick="openLightbox(this)">
+                    
+                    <div class="carousel-container relative">
+                        {% for photo_url in item.Photos %}
+                        <img src="{{ photo_url }}" alt="Gallery Image" 
+                             class="gallery-image w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105 {% if not loop.first %}hidden{% endif %}"
+                             data-index="{{ loop.index0 }}">
+                        {% endfor %}
+
+                        {% if item.Photos|length > 1 %}
+                        <button class="absolute top-1/2 left-3 -translate-y-1/2 bg-black/60 backdrop-blur-sm text-white w-10 h-10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-20" onclick="changeImage(event, -1)">
+                            &#10094;
+                        </button>
+                        <button class="absolute top-1/2 right-3 -translate-y-1/2 bg-black/60 backdrop-blur-sm text-white w-10 h-10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-20" onclick="changeImage(event, 1)">
+                            &#10095;
+                        </button>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="absolute top-4 left-4 z-10 flex flex-col gap-2">
+                        {% if item.Location %}
+                        <div class="flex">
+                            <span class="glass-pill bg-black/50 backdrop-blur-md text-white/70 px-3 py-1 rounded-full text-[9px] font-medium tracking-wide inline-flex items-center gap-1.5">
+                                <i class="fas fa-map-marker-alt text-plum"></i>
+                                {{ item.Location }}
+                            </span>
+                        </div>
+                        {% endif %}
+                        <div class="flex">
+                            <span class="glass-pill bg-black/50 backdrop-blur-md text-white/90 px-3 py-1 rounded-full text-[9px] font-bold tracking-widest uppercase inline-flex items-center">
+                                {{ item.Date }}
+                            </span>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="p-6">
+                    <p class="text-white/60 text-sm leading-relaxed italic">
+                        {{ item.Description }}
+                    </p>
+                </div>
+
+                <i class="fas fa-camera absolute bottom-4 right-4 text-2xl text-white/[0.05] group-hover:text-plum/20 transition-colors"></i>
+            </div>
+            {% endfor %}
+        </div>
+        
+        {% if not gallery %}
+        <div class="text-center py-20">
+            <p class="text-white/30 italic">No memories captured yet...</p>
+        </div>
+        {% endif %}
+    </section>
+</div>
+
+<div id="lightbox" class="fixed inset-0 bg-black/90 z-50 hidden flex items-center justify-center p-4 backdrop-blur-sm" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" class="max-w-full max-h-[90vh] rounded-2xl shadow-2xl" onclick="event.stopPropagation()">
+    <button class="absolute top-6 right-6 text-white/50 hover:text-white text-3xl">&times;</button>
+</div>
+
+<script>
+    // Carousel Functionality (remains same)
+    function changeImage(event, direction) {
+        event.stopPropagation(); 
+        const container = event.target.closest('.carousel-container');
+        const images = container.querySelectorAll('.gallery-image');
+        let currentIndex = 0;
+        images.forEach((img, index) => {
+            if (!img.classList.contains('hidden')) {
+                currentIndex = index;
+                img.classList.add('hidden');
+            }
+        });
+        let nextIndex = currentIndex + direction;
+        if (nextIndex >= images.length) nextIndex = 0;
+        if (nextIndex < 0) nextIndex = images.length - 1;
+        images[nextIndex].classList.remove('hidden');
+    }
+
+    // Lightbox Functionality (remains same)
+    function openLightbox(element) {
+        const activeImg = element.querySelector('.gallery-image:not(.hidden)');
+        if (!activeImg) return;
+        document.getElementById('lightbox-img').src = activeImg.src;
+        document.getElementById('lightbox').classList.remove('hidden');
+        document.body.style.overflow = 'hidden'; 
+    }
+    function closeLightbox() {
+        document.getElementById('lightbox').classList.add('hidden');
+        document.body.style.overflow = ''; 
+    }
+    document.addEventListener('keydown', function(event) {
+        if (event.key === "Escape") closeLightbox();
+    });
+</script>
+{% endblock %}
