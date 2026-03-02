@@ -18,9 +18,12 @@ def stats():
 def achievements():
     return render_template('achievements.html')
 
+@app.route('/gallery')
+def gallery():
+    return render_template('contact.html')
+
 @app.route('/contact')
 def contact():
-    # Linking to your Buy Me a Coffee as the contact point
     return render_template('contact.html')
 
 if __name__ == '__main__':
