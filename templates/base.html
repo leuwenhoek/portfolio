@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Portfolio | CEO of Hoollow{% endblock %}</title>
+    <link rel="icon" type="image/png" href="https://iili.io/By0XZnR.md.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
@@ -53,8 +54,10 @@
 <body>
 
     <nav class="fixed top-4 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-7xl z-[100] glass-header rounded-full transition-all duration-300">
-        <div class="px-8 py-3.5 flex justify-between items-center">
-            <a href="/" class="text-2xl font-bold tracking-tighter">leuwenhoek<span class="text-plum italic">.</span></a>
+        <div class="px-6 py-3.5 md:px-8 flex justify-between items-center">
+            <a href="/" class="text-xl md:text-2xl font-bold tracking-tighter z-[110]">leuwenhoek<span class="text-plum italic">.</span></a>
+            
+            <!-- Desktop Navigation Links (Visible on desktop) -->
             <div class="hidden md:flex space-x-10">
                 <a href="/" class="nav-link">Home</a>
                 <a href="/projects" class="nav-link">Projects</a>
@@ -63,11 +66,81 @@
                 <a href="/gallery" class="nav-link">Gallery</a>
                 <a href="https://linkify-nine-kappa.vercel.app/" target="_blank" class="nav-link">Connect</a>
             </div>
-            <a href="/coffee" target="_blank" class="glass-pill text-plum px-5 py-2 rounded-full text-[10px] hover:animate-pulse font-bold uppercase tracking-widest hover:bg-plum hover:text-white transition-all">
+            
+            <!-- Desktop Support Work Button -->
+            <a href="/coffee" target="_blank" class="hidden md:inline-block glass-pill text-plum px-5 py-2 rounded-full text-[10px] hover:animate-pulse font-bold uppercase tracking-widest hover:bg-plum hover:text-white transition-all">
                 Support Work
             </a>
+
+            <!-- Mobile Hamburger Toggle (Visible only on mobile, placed in z-[110] to stay above overlay) -->
+            <button id="menu-toggle" class="md:hidden text-white hover:text-plum focus:outline-none transition-colors p-2 text-xl z-[110]" aria-label="Toggle Menu">
+                <i id="menu-icon" class="fas fa-bars transition-all duration-300"></i>
+            </button>
         </div>
     </nav>
+
+    <!-- Full-Screen Mobile Glassmorphic Overlay -->
+    <div id="mobile-overlay" class="fixed inset-0 z-[90] bg-[#050505]/75 backdrop-blur-[35px] -webkit-backdrop-blur-[35px] flex flex-col justify-center items-center hidden md:hidden transition-all duration-500 opacity-0 overflow-y-auto">
+        <!-- Glowing Ambient Background Spots inside Menu for dynamic Glassmorphic effect -->
+        <div class="absolute top-[10%] left-[5%] w-[300px] h-[300px] bg-plum/10 blur-[100px] rounded-full pointer-events-none"></div>
+        <div class="absolute bottom-[10%] right-[5%] w-[300px] h-[300px] bg-indigo-900/10 blur-[100px] rounded-full pointer-events-none"></div>
+        
+        <!-- Mobile Links Stack (Aligned center-middle) -->
+        <div class="flex flex-col items-center justify-center space-y-4 w-full max-w-sm px-6 relative z-10 py-10">
+            
+            <a href="/" class="group flex items-center justify-between w-full px-6 py-4 rounded-[1.25rem] glass-card border-white/5 hover:border-plum/30 transition-all duration-300 hover:scale-[1.03] hover:bg-white/[0.02]">
+                <div class="flex items-center gap-4">
+                    <span class="text-[10px] font-mono font-bold text-plum/60 tracking-wider">01 /</span>
+                    <span class="text-base font-bold uppercase tracking-[0.15em] text-white/70 group-hover:text-plum transition-colors">Home</span>
+                </div>
+                <i class="fas fa-chevron-right text-white/20 group-hover:text-plum group-hover:translate-x-1 transition-all text-sm"></i>
+            </a>
+
+            <a href="/projects" class="group flex items-center justify-between w-full px-6 py-4 rounded-[1.25rem] glass-card border-white/5 hover:border-plum/30 transition-all duration-300 hover:scale-[1.03] hover:bg-white/[0.02]">
+                <div class="flex items-center gap-4">
+                    <span class="text-[10px] font-mono font-bold text-plum/60 tracking-wider">02 /</span>
+                    <span class="text-base font-bold uppercase tracking-[0.15em] text-white/70 group-hover:text-plum transition-colors">Projects</span>
+                </div>
+                <i class="fas fa-chevron-right text-white/20 group-hover:text-plum group-hover:translate-x-1 transition-all text-sm"></i>
+            </a>
+
+            <a href="/stats" class="group flex items-center justify-between w-full px-6 py-4 rounded-[1.25rem] glass-card border-white/5 hover:border-plum/30 transition-all duration-300 hover:scale-[1.03] hover:bg-white/[0.02]">
+                <div class="flex items-center gap-4">
+                    <span class="text-[10px] font-mono font-bold text-plum/60 tracking-wider">03 /</span>
+                    <span class="text-base font-bold uppercase tracking-[0.15em] text-white/70 group-hover:text-plum transition-colors">Stats</span>
+                </div>
+                <i class="fas fa-chevron-right text-white/20 group-hover:text-plum group-hover:translate-x-1 transition-all text-sm"></i>
+            </a>
+
+            <a href="/achievements" class="group flex items-center justify-between w-full px-6 py-4 rounded-[1.25rem] glass-card border-white/5 hover:border-plum/30 transition-all duration-300 hover:scale-[1.03] hover:bg-white/[0.02]">
+                <div class="flex items-center gap-4">
+                    <span class="text-[10px] font-mono font-bold text-plum/60 tracking-wider">04 /</span>
+                    <span class="text-base font-bold uppercase tracking-[0.15em] text-white/70 group-hover:text-plum transition-colors">Milestones</span>
+                </div>
+                <i class="fas fa-chevron-right text-white/20 group-hover:text-plum group-hover:translate-x-1 transition-all text-sm"></i>
+            </a>
+
+            <a href="/gallery" class="group flex items-center justify-between w-full px-6 py-4 rounded-[1.25rem] glass-card border-white/5 hover:border-plum/30 transition-all duration-300 hover:scale-[1.03] hover:bg-white/[0.02]">
+                <div class="flex items-center gap-4">
+                    <span class="text-[10px] font-mono font-bold text-plum/60 tracking-wider">05 /</span>
+                    <span class="text-base font-bold uppercase tracking-[0.15em] text-white/70 group-hover:text-plum transition-colors">Gallery</span>
+                </div>
+                <i class="fas fa-chevron-right text-white/20 group-hover:text-plum group-hover:translate-x-1 transition-all text-sm"></i>
+            </a>
+
+            <a href="https://linkify-nine-kappa.vercel.app/" target="_blank" class="group flex items-center justify-between w-full px-6 py-4 rounded-[1.25rem] glass-card border-white/5 hover:border-plum/30 transition-all duration-300 hover:scale-[1.03] hover:bg-white/[0.02]">
+                <div class="flex items-center gap-4">
+                    <span class="text-[10px] font-mono font-bold text-plum/60 tracking-wider">06 /</span>
+                    <span class="text-base font-bold uppercase tracking-[0.15em] text-white/70 group-hover:text-plum transition-colors">Connect</span>
+                </div>
+                <i class="fas fa-chevron-right text-white/20 group-hover:text-plum group-hover:translate-x-1 transition-all text-sm"></i>
+            </a>
+            
+            <a href="/coffee" target="_blank" class="w-full glass-pill text-plum text-center py-4 rounded-[1.25rem] text-[11px] font-black uppercase tracking-[0.2em] hover:bg-plum hover:text-white transition-all shadow-2xl mt-6 border border-plum/30 flex items-center justify-center gap-2 hover:scale-[1.03]">
+                <i class="fas fa-heart animate-pulse"></i> Support Work
+            </a>
+        </div>
+    </div>
 
     <main>{% block content %}{% endblock %}</main>
 
@@ -76,7 +149,44 @@
     </footer>
 
     <script>
-        
+        // Mobile Hamburger Menu Toggle Logic (Full-Screen Glass Overlay)
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileOverlay = document.getElementById('mobile-overlay');
+            const menuIcon = document.getElementById('menu-icon');
+            
+            if (menuToggle && mobileOverlay && menuIcon) {
+                menuToggle.addEventListener('click', () => {
+                    const isClosed = mobileOverlay.classList.contains('hidden');
+                    if (isClosed) {
+                        // Open Overlay Menu
+                        mobileOverlay.classList.remove('hidden');
+                        mobileOverlay.classList.add('flex');
+                        // Force brief reflow and trigger high-performance fade transition
+                        setTimeout(() => {
+                            mobileOverlay.classList.add('opacity-100');
+                            mobileOverlay.classList.remove('opacity-0');
+                        }, 10);
+                        menuIcon.className = 'fas fa-times transition-all duration-300 rotate-90';
+                        document.body.style.overflow = 'hidden'; // Lock background scrolling
+                    } else {
+                        // Close Overlay Menu
+                        mobileOverlay.classList.add('opacity-0');
+                        mobileOverlay.classList.remove('opacity-100');
+                        // Delay hidden to allow transition to play
+                        setTimeout(() => {
+                            if (mobileOverlay.classList.contains('opacity-0')) {
+                                mobileOverlay.classList.add('hidden');
+                                mobileOverlay.classList.remove('flex');
+                            }
+                        }, 500);
+                        menuIcon.className = 'fas fa-bars transition-all duration-300';
+                        document.body.style.overflow = ''; // Unlock background scrolling
+                    }
+                });
+            }
+        });
+
         function copyCloneLink(link, button) {
             navigator.clipboard.writeText(link).then(() => {
                 const originalText = button.textContent;
