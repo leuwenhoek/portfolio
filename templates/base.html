@@ -30,7 +30,7 @@
             background: rgba(5, 5, 5, 0.8);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
         .glass-card {
             background: rgba(255, 255, 255, 0.03);
@@ -52,8 +52,8 @@
 </head>
 <body>
 
-    <nav class="fixed w-full z-[100] glass-header">
-        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+    <nav class="fixed top-4 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-7xl z-[100] glass-header rounded-full transition-all duration-300">
+        <div class="px-8 py-3.5 flex justify-between items-center">
             <a href="/" class="text-2xl font-bold tracking-tighter">leuwenhoek<span class="text-plum italic">.</span></a>
             <div class="hidden md:flex space-x-10">
                 <a href="/" class="nav-link">Home</a>

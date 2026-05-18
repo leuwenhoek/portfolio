@@ -1,6 +1,32 @@
 {% extends "base.html" %}
 
 {% block content %}
+<style>
+    .flip-card {
+        perspective: 1500px;
+    }
+    .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        transform-style: preserve-3d;
+    }
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+    .flip-card-front, .flip-card-back {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+    .flip-card-back {
+        transform: rotateY(180deg);
+    }
+</style>
 <div class="relative w-full overflow-x-hidden">
 
     <section class="relative min-h-screen flex items-center px-6 lg:px-20 bg-[#050505] pt-32 lg:pt-0">
@@ -62,18 +88,33 @@
 
             <div class="lg:col-span-5 order-1 lg:order-2 flex justify-center lg:justify-end">
                 <div class="relative w-full max-w-[420px]">
-                    <div class="relative aspect-[3/4] md:h-[580px] z-10">
-                        <div class="absolute inset-0 border border-white/10 glass-card rounded-[2.5rem] p-3 shadow-2xl">
-                            <div class="w-full h-full rounded-[2rem] overflow-hidden relative bg-zinc-900">
-                                <img src="https://iili.io/fPl9Gmx.png" alt="Profile Photo"
-                                    class="w-full h-full object-cover grayscale brightness-110 contrast-125 hover:grayscale-0 transition duration-[1.5s]">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                    <div class="relative aspect-[3/4] md:h-[580px] z-10 flip-card">
+                        <div class="flip-card-inner">
+                            <!-- Front Side (Default Profile) -->
+                            <div class="flip-card-front">
+                                <div class="absolute inset-0 border border-white/10 glass-card rounded-[2.5rem] p-3 shadow-2xl">
+                                    <div class="w-full h-full rounded-[2rem] overflow-hidden relative bg-zinc-900">
+                                        <img src="https://iili.io/By0XZnR.md.png" alt="Profile Photo"
+                                            class="w-full h-full object-cover grayscale brightness-110 contrast-125 transition duration-[1.5s]">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Back Side (Hover Swap Profile) -->
+                            <div class="flip-card-back">
+                                <div class="absolute inset-0 border border-plum/20 glass-card rounded-[2.5rem] p-3 shadow-2xl">
+                                    <div class="w-full h-full rounded-[2rem] overflow-hidden relative bg-zinc-900">
+                                        <img src="https://iili.io/qqmwSPp.md.webp" alt="Hover Photo"
+                                            class="w-full h-full object-cover grayscale brightness-110 contrast-125 transition duration-[1.5s]">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                         <div class="absolute -bottom-6 -left-8 glass-card border-plum/30 p-7 rounded-2xl hidden md:block shadow-2xl backdrop-blur-2xl">
                             <p class="text-[10px] uppercase tracking-widest text-plum font-black mb-1">Tenure</p>
-                            <p class="text-3xl font-bold">1.5<span class="text-plum italic">+</span> YRS</p>
+                            <p class="text-2xl font-bold font-mono tracking-tighter"><span id="tenure-value">1.70</span><span class="text-plum italic font-sans">+</span> YRS</p>
                         </div>
                     </div>
                 </div>
@@ -82,4 +123,20 @@
         </div>
     </section>
 </div>
+
+<script>
+    (function() {
+        const startDate = new Date('2024-09-08T00:00:00');
+        const tenureElement = document.getElementById('tenure-value');
+        if (tenureElement) {
+            function updateTenure() {
+                const now = new Date();
+                const diffTime = now - startDate;
+                const diffYears = diffTime / (1000 * 60 * 60 * 24 * 365.25);
+                tenureElement.textContent = diffYears.toFixed(1);
+            }
+            updateTenure();
+        }
+    })();
+</script>
 {% endblock %}

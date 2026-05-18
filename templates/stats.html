@@ -27,13 +27,13 @@
                 </div>
 
                 <div class="grid lg:grid-cols-2 gap-8 mb-16">
-                    <img src="https://github-readme-stats.vercel.app/api?username=leuwenhoek&show_icons=true&theme=transparent&title_color=DDA0DD&text_color=ffffff&icon_color=DDA0DD&hide_border=true" class="w-full filter drop-shadow-2xl">
-                    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=leuwenhoek&layout=compact&theme=transparent&title_color=DDA0DD&text_color=ffffff&hide_border=true" class="w-full filter drop-shadow-2xl">
+                    <img src="https://github-readme-stats.shion.dev/api?username=leuwenhoek&show_icons=true&bg_color=00000000&title_color=DDA0DD&text_color=ffffff&icon_color=DDA0DD&hide_border=true" class="w-full filter drop-shadow-2xl">
+                    <img src="https://github-readme-stats.shion.dev/api/top-langs/?username=leuwenhoek&layout=compact&bg_color=00000000&title_color=DDA0DD&text_color=ffffff&hide_border=true" class="w-full filter drop-shadow-2xl">
                 </div>
 
                 <div class="glass-card rounded-3xl p-8 bg-[#0a0a0a] border-white/5">
                     <div class="flex justify-center overflow-x-auto pb-4 custom-scrollbar">
-                        <img src="https://ghchart.rshah.org/DDA0DD/leuwenhoek" alt="leuwenhoek Github Chart" class="min-w-[800px] lg:min-w-0 w-full brightness-110 mix-blend-screen">
+                        <img src="https://ghchart.rshah.org/DDA0DD/leuwenhoek" alt="leuwenhoek Github Chart" class="min-w-[800px] lg:min-w-0 w-full dark-gh-chart">
                     </div>
                 </div>
             </div>
@@ -83,7 +83,7 @@
                     <i class="fas fa-terminal text-3xl text-plum/30"></i>
                 </div>
                 <div class="flex justify-center">
-                    <img src="https://leetcard.jacoblin.cool/leuwenhoek?theme=dark&font=Outfit&ext=activity" class="w-full max-w-2xl rounded-2xl shadow-2xl">
+                    <img src="https://leetcard.jacoblin.cool/leuwenhoek?theme=dark&font=Outfit&ext=activity&t={{ timestamp }}" class="w-full max-w-2xl rounded-2xl shadow-2xl">
                 </div>
             </div>
 
@@ -95,5 +95,8 @@
     .custom-scrollbar::-webkit-scrollbar { height: 4px; }
     .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
     .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(221, 160, 221, 0.2); border-radius: 10px; }
+    .dark-gh-chart {
+        filter: invert(1) hue-rotate(180deg) brightness(1.2) contrast(1.2);
+    }
 </style>
 {% endblock %}

@@ -1,8 +1,19 @@
 import os
 import json
+import time
+import threading
+import urllib.request
 from flask import Flask, render_template
 
 app = Flask(__name__)
+
+def clear_leetcode_cache():
+    try:
+        req = urllib.request.Request("https://leetcard.jacoblin.cool/us/leuwenhoek", method="DELETE")
+        with urllib.request.urlopen(req, timeout=5) as response:
+            response.read()
+    except Exception:
+        pass
 
 @app.route('/')
 def home():
@@ -14,7 +25,8 @@ def projects():
 
 @app.route('/stats')
 def stats():
-    return render_template('stats.html')
+    threading.Thread(target=clear_leetcode_cache).start()
+    return render_template('stats.html', timestamp=int(time.time()))
 
 @app.route('/achievements')
 def achievements():
