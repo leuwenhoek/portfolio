@@ -8,15 +8,6 @@ from flask import Flask, render_template, redirect, make_response, send_from_dir
 
 app = Flask(__name__)
 
-@app.before_request
-def enforce_canonical_domain():
-    host = request.headers.get('Host', '')
-    if not host.startswith('www.') and 'localhost' not in host and '127.0.0.1' not in host:
-        url = f"https://www.{host}{request.path}"
-        if request.query_string:
-            url += f"?{request.query_string.decode('utf-8')}"
-        return redirect(url, code=301)
-
 def clear_leetcode_cache():
     try:
         req = urllib.request.Request("https://leetcard.jacoblin.cool/us/leuwenhoek", method="DELETE")
