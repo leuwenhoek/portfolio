@@ -8,6 +8,16 @@ from flask import Flask, render_template, redirect, make_response, send_from_dir
 
 app = Flask(__name__)
 
+@app.before_request
+def enforce_canonical_domain():
+    host = request.headers.get('Host', '')
+    if host.startswith('www.') and 'localhost' not in host and '127.0.0.1' not in host:
+        canonical_host = host[4:]
+        url = f"https://{canonical_host}{request.path}"
+        if request.query_string:
+            url += f"?{request.query_string.decode('utf-8')}"
+        return redirect(url, code=301)
+
 def clear_leetcode_cache():
     try:
         req = urllib.request.Request("https://leetcard.jacoblin.cool/us/leuwenhoek", method="DELETE")
@@ -70,11 +80,10 @@ def apple_touch_icon():
 def robots_txt():
     try:
         with open(os.path.join(app.root_path, 'robots.txt'), 'r', encoding='utf-8') as f:
-            content = f.read()
-        base_url = request.host_url.rstrip('/')
-        content = content.replace('https://leuwenhoek.xyz', base_url)
+            content = f.read().strip()
         response = make_response(content)
         response.headers['Content-Type'] = 'text/plain; charset=utf-8'
+        response.headers['X-Content-Type-Options'] = 'nosniff'
         return response
     except Exception:
         return send_from_directory(app.root_path, 'robots.txt')
@@ -87,11 +96,10 @@ def robot_txt():
 def sitemap_xml():
     try:
         with open(os.path.join(app.root_path, 'sitemap.xml'), 'r', encoding='utf-8') as f:
-            content = f.read()
-        base_url = request.host_url.rstrip('/')
-        content = content.replace('https://leuwenhoek.xyz', base_url)
+            content = f.read().strip()
         response = make_response(content)
         response.headers['Content-Type'] = 'application/xml; charset=utf-8'
+        response.headers['X-Content-Type-Options'] = 'nosniff'
         return response
     except Exception:
         return send_from_directory(app.root_path, 'sitemap.xml')
