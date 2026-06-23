@@ -4,7 +4,7 @@ import time
 import threading
 import urllib.request
 from datetime import datetime
-from flask import Flask, render_template, redirect, make_response, send_from_directory
+from flask import Flask, render_template, redirect, make_response, send_from_directory, request
 
 app = Flask(__name__)
 
@@ -68,7 +68,16 @@ def apple_touch_icon():
 
 @app.route('/robots.txt')
 def robots_txt():
-    return send_from_directory(app.root_path, 'robots.txt')
+    try:
+        with open(os.path.join(app.root_path, 'robots.txt'), 'r', encoding='utf-8') as f:
+            content = f.read()
+        base_url = request.host_url.rstrip('/')
+        content = content.replace('https://leuwenhoek.xyz', base_url)
+        response = make_response(content)
+        response.headers['Content-Type'] = 'text/plain; charset=utf-8'
+        return response
+    except Exception:
+        return send_from_directory(app.root_path, 'robots.txt')
 
 @app.route('/robot.txt')
 def robot_txt():
@@ -76,7 +85,16 @@ def robot_txt():
 
 @app.route('/sitemap.xml')
 def sitemap_xml():
-    return send_from_directory(app.root_path, 'sitemap.xml')
+    try:
+        with open(os.path.join(app.root_path, 'sitemap.xml'), 'r', encoding='utf-8') as f:
+            content = f.read()
+        base_url = request.host_url.rstrip('/')
+        content = content.replace('https://leuwenhoek.xyz', base_url)
+        response = make_response(content)
+        response.headers['Content-Type'] = 'application/xml; charset=utf-8'
+        return response
+    except Exception:
+        return send_from_directory(app.root_path, 'sitemap.xml')
 
 if __name__ == '__main__':
     app.run(debug=True)
