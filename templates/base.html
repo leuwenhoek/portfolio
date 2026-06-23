@@ -3,14 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Portfolio | CEO of Hoollow{% endblock %}</title>
-    <link rel="icon" type="image/png" href="https://iili.io/By0XZnR.md.png">
+    
+    <!-- Primary SEO Meta Tags -->
+    <title>{% block title %}Ayush Kumar | Founder & CEO of Hoollow{% endblock %}</title>
+    <meta name="title" content="{% block meta_title %}Ayush Kumar | Founder & CEO of Hoollow{% endblock %}">
+    <meta name="description" content="{% block meta_description %}Portfolio of Ayush Kumar, 15-year-old AI/ML developer, full-stack programmer, and Founder & CEO of Hoollow.{% endblock %}">
+    <meta name="robots" content="{% block robots %}index, follow{% endblock %}">
+    <link rel="canonical" href="{{ site_url }}{% block canonical_path %}{{ request.path }}{% endblock %}">
+
+    <!-- Open Graph / Facebook / Social SEO -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ site_url }}{% block og_url_path %}{{ request.path }}{% endblock %}">
+    <meta property="og:title" content="{% block og_title %}Ayush Kumar | Founder & CEO of Hoollow{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Portfolio of Ayush Kumar, 15-year-old AI/ML developer, full-stack programmer, and Founder & CEO of Hoollow.{% endblock %}">
+    <meta property="og:image" content="{% block og_image %}{{ site_url }}/static/images/profile.png{% endblock %}">
+
+    <!-- Twitter / X Card SEO -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="{{ site_url }}{% block twitter_url_path %}{{ request.path }}{% endblock %}">
+    <meta name="twitter:title" content="{% block twitter_title %}Ayush Kumar | Founder & CEO of Hoollow{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_description %}Portfolio of Ayush Kumar, 15-year-old AI/ML developer, full-stack programmer, and Founder & CEO of Hoollow.{% endblock %}">
+    <meta name="twitter:image" content="{% block twitter_image %}{{ site_url }}/static/images/profile.png{% endblock %}">
+
+    <!-- Favicon SEO & Manifest -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicons/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/favicons/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/favicons/apple-touch-icon.png">
+    <link rel="manifest" href="/static/favicons/site.webmanifest">
+    
+    <!-- Fonts Preconnect & Load -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ayush Kumar",
+      "url": "{{ site_url }}",
+      "image": "{{ site_url }}/static/images/profile.png",
+      "sameAs": [
+        "https://github.com/leuwenhoek",
+        "https://buymeacoffee.com/leuwenhoek"
+      ],
+      "jobTitle": "Founder & CEO",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Hoollow",
+        "url": "https://hoollow.com"
+      },
+      "description": "15-year-old AI/ML developer, full-stack programmer, and Founder & CEO of Hoollow."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Ayush Kumar Portfolio",
+      "url": "{{ site_url }}",
+      "description": "Portfolio of Ayush Kumar, Founder & CEO of Hoollow.",
+      "publisher": {
+        "@type": "Person",
+        "name": "Ayush Kumar"
+      }
+    }
+    </script>
+    {% block additional_schema %}{% endblock %}
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
-        
         :root { --plum: #DDA0DD; --dark: #050505; }
         
         /* FIX: Ensure vertical scrolling works and horizontal is killed */
@@ -64,7 +131,7 @@
                 <a href="/stats" class="nav-link">Stats</a>
                 <a href="/achievements" class="nav-link">Milestones</a>
                 <a href="/gallery" class="nav-link">Gallery</a>
-                <a href="https://linkify-nine-kappa.vercel.app/" target="_blank" class="nav-link">Connect</a>
+                <a href="https://linkify-nine-kappa.vercel.app/" target="_blank" rel="noopener noreferrer" class="nav-link">Connect</a>
             </div>
             
             <!-- Desktop Support Work Button -->
@@ -128,7 +195,7 @@
                 <i class="fas fa-chevron-right text-white/20 group-hover:text-plum group-hover:translate-x-1 transition-all text-sm"></i>
             </a>
 
-            <a href="https://linkify-nine-kappa.vercel.app/" target="_blank" class="group flex items-center justify-between w-full px-6 py-4 rounded-[1.25rem] glass-card border-white/5 hover:border-plum/30 transition-all duration-300 hover:scale-[1.03] hover:bg-white/[0.02]">
+            <a href="https://linkify-nine-kappa.vercel.app/" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between w-full px-6 py-4 rounded-[1.25rem] glass-card border-white/5 hover:border-plum/30 transition-all duration-300 hover:scale-[1.03] hover:bg-white/[0.02]">
                 <div class="flex items-center gap-4">
                     <span class="text-[10px] font-mono font-bold text-plum/60 tracking-wider">06 /</span>
                     <span class="text-base font-bold uppercase tracking-[0.15em] text-white/70 group-hover:text-plum transition-colors">Connect</span>

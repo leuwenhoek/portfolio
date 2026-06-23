@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
-{% block title %}Gallery | Hoollow{% endblock %}
+{% block title %}Visual Gallery & Event Timeline | Ayush Kumar Portfolio{% endblock %}
+{% block meta_description %}Browse the gallery of Ayush Kumar, showcasing photos from AI hackathons, IIT-Delhi workshops, and major tech events.{% endblock %}
 
 {% block content %}
 <div class="relative w-full overflow-x-hidden min-h-screen bg-[#050505]">
@@ -22,7 +23,7 @@
                     
                     <div class="carousel-container relative">
                         {% for photo_url in item.Photos %}
-                        <img src="{{ photo_url }}" alt="Gallery Image" 
+                        <img src="{{ photo_url }}" alt="Ayush Kumar at {{ item.Location }} - {{ item.Description }} (Photo {{ loop.index }})" loading="lazy"
                              class="gallery-image w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105 {% if not loop.first %}hidden{% endif %}"
                              data-index="{{ loop.index0 }}">
                         {% endfor %}

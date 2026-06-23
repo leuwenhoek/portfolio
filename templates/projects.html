@@ -1,6 +1,53 @@
 {% extends "base.html" %}
 
-{% block title %}Selected Works | Hoollow{% endblock %}
+{% block title %}Selected Projects & Ventures | Ayush Kumar Portfolio{% endblock %}
+{% block meta_description %}Discover projects and ventures developed by Ayush Kumar, including SleepX (AI computer vision sleep detection), PhishZap, and automation bots.{% endblock %}
+
+{% block additional_schema %}
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "SleepX",
+    "operatingSystem": "All",
+    "applicationCategory": "DeveloperApplication",
+    "description": "A computer vision system to detect driver drowsiness and trigger alert events with IoT integration.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "PhishZap",
+    "operatingSystem": "All",
+    "applicationCategory": "SecurityApplication",
+    "description": "A web application to analyze text messages and links for potential phishing threats.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Non-sense bot",
+    "operatingSystem": "Windows, macOS, Linux",
+    "applicationCategory": "UtilitiesApplication",
+    "description": "A desktop assistant that automates routine tasks and provides custom responses via voice control.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+]
+</script>
+{% endblock %}
 
 {% block content %}
 <div class="relative w-full overflow-x-hidden min-h-screen bg-[#050505]">

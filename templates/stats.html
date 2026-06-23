@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 
+{% block title %}Technical Analytics & Skills | Ayush Kumar Portfolio{% endblock %}
+{% block meta_description %}Explore the technical stats and analytics of Ayush Kumar (leuwenhoek), including GitHub activity metrics, core technology stack, and LeetCode performance charts.{% endblock %}
+
 {% block content %}
 <div class="relative w-full overflow-x-hidden min-h-screen bg-[#050505]">
     
@@ -27,13 +30,13 @@
                 </div>
 
                 <div class="grid lg:grid-cols-2 gap-8 mb-16">
-                    <img src="https://github-readme-stats.shion.dev/api?username=leuwenhoek&show_icons=true&bg_color=00000000&title_color=DDA0DD&text_color=ffffff&icon_color=DDA0DD&hide_border=true" class="w-full filter drop-shadow-2xl">
-                    <img src="https://github-readme-stats.shion.dev/api/top-langs/?username=leuwenhoek&layout=compact&bg_color=00000000&title_color=DDA0DD&text_color=ffffff&hide_border=true" class="w-full filter drop-shadow-2xl">
+                    <img src="https://github-readme-stats.shion.dev/api?username=leuwenhoek&show_icons=true&bg_color=00000000&title_color=DDA0DD&text_color=ffffff&icon_color=DDA0DD&hide_border=true" alt="Ayush Kumar GitHub Profile Analytics Summary - Commits, Pull Requests, and Contributions" loading="lazy" class="w-full filter drop-shadow-2xl">
+                    <img src="https://github-readme-stats.shion.dev/api/top-langs/?username=leuwenhoek&layout=compact&bg_color=00000000&title_color=DDA0DD&text_color=ffffff&hide_border=true" alt="Ayush Kumar Top Coding Languages Chart - Breakdown of programming languages used" loading="lazy" class="w-full filter drop-shadow-2xl">
                 </div>
 
                 <div class="glass-card rounded-3xl p-8 bg-[#0a0a0a] border-white/5">
                     <div class="flex justify-center overflow-x-auto pb-4 custom-scrollbar">
-                        <img src="https://ghchart.rshah.org/DDA0DD/leuwenhoek" alt="leuwenhoek Github Chart" class="min-w-[800px] lg:min-w-0 w-full dark-gh-chart">
+                        <img src="https://ghchart.rshah.org/DDA0DD/leuwenhoek" alt="leuwenhoek Github Chart" loading="lazy" class="min-w-[800px] lg:min-w-0 w-full dark-gh-chart">
                     </div>
                 </div>
             </div>
@@ -83,7 +86,7 @@
                     <i class="fas fa-terminal text-3xl text-plum/30"></i>
                 </div>
                 <div class="flex justify-center">
-                    <img src="https://leetcard.jacoblin.cool/leuwenhoek?theme=dark&font=Outfit&ext=activity&t={{ timestamp }}" class="w-full max-w-2xl rounded-2xl shadow-2xl">
+                    <img src="https://leetcard.jacoblin.cool/leuwenhoek?theme=dark&font=Outfit&ext=activity&t={{ timestamp }}" alt="Ayush Kumar LeetCode Coding Profile Card - Problems solved and contest rankings" loading="lazy" class="w-full max-w-2xl rounded-2xl shadow-2xl">
                 </div>
             </div>
 

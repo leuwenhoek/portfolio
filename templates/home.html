@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 
+{% block title %}Ayush Kumar | AI/ML Developer, Founder & CEO of Hoollow{% endblock %}
+{% block meta_description %}Portfolio of Ayush Kumar, 15-year-old AI/ML strategist, full-stack C++ developer, and Founder & CEO of Hoollow. Explore projects, milestones, and technical stats.{% endblock %}
+
 {% block content %}
 <style>
     .flip-card {
@@ -51,17 +54,25 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                     <div class="glass-card p-6 rounded-2xl border-plum/10">
                         <p class="text-white/40 uppercase text-[10px] tracking-widest font-bold mb-2 italic">Identity</p>
-                        <h3 class="text-xl font-bold text-white mb-1">Ayush kumar</h3>
-                        <p class="text-sm text-white/50">15 Years Old • Founder & CEO of Hoollow</p>
+                        <h3 class="text-xl font-bold text-white mb-1">Ayush Kumar</h3>
+                        <p class="text-sm text-white/50">15 Years Old • Student Entrepreneur & AI Developer</p>
                     </div>
 
                     <div class="glass-card p-6 rounded-2xl border-plum/10">
                         <p class="text-white/40 uppercase text-[10px] tracking-widest font-bold mb-2 italic">Academic Background</p>
                         <h3 class="text-xl font-bold text-white mb-1">High school student</h3>
-                        <p class="text-sm text-white/50">Kv gole market, New delhi</p>
+                        <p class="text-sm text-white/50">KV Gole Market, New Delhi • Startup Builder</p>
                     </div>
 
                     <div class="md:col-span-2 glass-card p-8 rounded-3xl relative overflow-hidden group">
+                        <p class="text-white/70 text-sm leading-relaxed mb-6">
+                            I am a 15-year-old <span class="text-white font-semibold">Student Entrepreneur</span>, 
+                            <a href="/projects" class="text-plum hover:underline font-semibold">AI Developer</a>, and 
+                            <a href="/stats" class="text-plum hover:underline font-semibold">Full Stack Developer</a>. 
+                            As an active <span class="text-white font-semibold">Startup Builder</span> and 
+                            <a href="/stats" class="text-plum hover:underline font-semibold">Open Source Contributor</a>, 
+                            I serve as the <span class="text-white font-semibold">Founder of Hoollow</span>, aiming to redefine user interfaces and digital frameworks.
+                        </p>
                         <i class="fas fa-quote-left text-plum/20 text-4xl mb-4"></i>
                         <p class="text-lg text-white/80 leading-relaxed font-medium italic">
                             “Follow your dream: age is just a number, so just begin with intent, stay consistent in effort, and let growth be driven by discipline rather than time.”
@@ -77,7 +88,7 @@
                 </div>
 
                 <div class="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-8">
-                    <a href="https://hoollow.com" target="_blank" class="group flex items-center gap-6 text-sm font-bold uppercase tracking-widest">
+                    <a href="https://hoollow.com" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-6 text-sm font-bold uppercase tracking-widest">
                         <span>Explore Hoollow</span>
                         <span class="w-14 h-14 rounded-full glass-card flex items-center justify-center group-hover:border-plum transition-all duration-500">
                             <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
@@ -94,7 +105,7 @@
                             <div class="flip-card-front">
                                 <div class="absolute inset-0 border border-white/10 glass-card rounded-[2.5rem] p-3 shadow-2xl">
                                     <div class="w-full h-full rounded-[2rem] overflow-hidden relative bg-zinc-900">
-                                        <img src="https://iili.io/By0XZnR.md.png" alt="Profile Photo"
+                                        <img src="/static/images/profile.png" alt="Ayush Kumar - Founder of Hoollow and AI Developer" width="420" height="580" loading="eager"
                                             class="w-full h-full object-cover grayscale brightness-110 contrast-125 transition duration-[1.5s]">
                                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                                     </div>
@@ -104,7 +115,7 @@
                             <div class="flip-card-back">
                                 <div class="absolute inset-0 border border-plum/20 glass-card rounded-[2.5rem] p-3 shadow-2xl">
                                     <div class="w-full h-full rounded-[2rem] overflow-hidden relative bg-zinc-900">
-                                        <img src="https://iili.io/qqmwSPp.md.webp" alt="Hover Photo"
+                                        <img src="/static/images/profile-hover.webp" alt="Ayush Kumar - Student Entrepreneur and Full Stack Developer" width="420" height="580" loading="lazy"
                                             class="w-full h-full object-cover grayscale brightness-110 contrast-125 transition duration-[1.5s]">
                                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                                     </div>
