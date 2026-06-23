@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /coffee
 
-Sitemap: https://leuwenhoek.xyz/sitemap.xml
+Sitemap: https://www.leuwenhoek.xyz/sitemap.xml

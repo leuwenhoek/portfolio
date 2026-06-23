@@ -11,9 +11,8 @@ app = Flask(__name__)
 @app.before_request
 def enforce_canonical_domain():
     host = request.headers.get('Host', '')
-    if host.startswith('www.') and 'localhost' not in host and '127.0.0.1' not in host:
-        canonical_host = host[4:]
-        url = f"https://{canonical_host}{request.path}"
+    if not host.startswith('www.') and 'localhost' not in host and '127.0.0.1' not in host:
+        url = f"https://www.{host}{request.path}"
         if request.query_string:
             url += f"?{request.query_string.decode('utf-8')}"
         return redirect(url, code=301)
@@ -65,7 +64,7 @@ def coffee():
 
 @app.context_processor
 def inject_site_url():
-    site_url = os.environ.get('SITE_URL', 'https://leuwenhoek.xyz').rstrip('/')
+    site_url = os.environ.get('SITE_URL', 'https://www.leuwenhoek.xyz').rstrip('/')
     return dict(site_url=site_url)
 
 @app.route('/favicon.ico')

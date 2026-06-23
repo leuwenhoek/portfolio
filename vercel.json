@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "leuwenhoek.xyz"
+        }
+      ],
+      "destination": "https://www.leuwenhoek.xyz/:path*",
+      "statusCode": 301
+    }
+  ]
+}
